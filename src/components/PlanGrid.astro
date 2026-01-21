@@ -1,0 +1,71 @@
+---
+import { PLANES } from '../data/planes'
+
+const formatCurrency = (value: string, unit: string) => {
+  return unit === 'UF' ? `${value} UF` : `$${value}`
+}
+---
+
+<section id="planes" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <span class="text-blue-600 font-bold tracking-widest uppercase text-sm">Planes Flexibles</span
+      >
+      <h2 class="text-4xl font-black text-slate-900 mt-2">Protección a tu medida</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {
+        PLANES.map((plan) => (
+          <div
+            class={`relative rounded-3xl p-8 border-2 flex flex-col ${plan.destacado ? 'border-blue-600 bg-blue-50/50 shadow-2xl scale-105 z-10' : 'border-slate-100 bg-white shadow-lg hover:border-blue-300'} transition-all`}
+          >
+            {plan.destacado && (
+              <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-lg">
+                Más Cotizado
+              </div>
+            )}
+
+            <div class="mb-6">
+              <h3 class="text-xl font-bold text-slate-900">{plan.nombre}</h3>
+              <div class="mt-4 flex items-baseline">
+                <span class="text-sm text-slate-500 font-medium">Desde</span>
+                <span class="text-4xl font-black text-slate-900 ml-2">{plan.precioDesde}</span>
+                <span class="text-xl font-bold text-slate-600 ml-1">{plan.unidad}</span>
+              </div>
+              <p class="text-slate-500 text-sm mt-1">Valor mensual por beneficiario</p>
+            </div>
+
+            <ul class="space-y-4 mb-8 flex-1">
+              {plan.caracteristicas.map((feature) => (
+                <li class="flex items-start gap-3 text-slate-700 text-sm">
+                  <svg
+                    class="w-5 h-5 text-green-500 shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href={`https://wa.me/569XXXXXXXX?text=Hola,%20me%20interesa%20cotizar%20el%20plan%20${plan.nombre}`}
+              class={`w-full py-3 rounded-xl font-bold text-center transition-colors ${plan.destacado ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
+            >
+              Solicitar Cotización
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

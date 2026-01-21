@@ -1,0 +1,52 @@
+---
+const features = [
+  {
+    title: 'Comparativa Imparcial',
+    desc: 'Te mostramos las letras chicas de cada contrato. Elige con información real, sin sesgos de marca.',
+    icon: '⚖️'
+  },
+  {
+    title: 'Mejor Precio Garantizado',
+    desc: 'Accede a valores preferenciales y descuentos exclusivos por contratación vía ejecutiva autorizada.',
+    icon: '💰'
+  },
+  {
+    title: 'Gestión 100% Digital',
+    desc: 'Sin papeleos eternos. Contrata tu plan de protección familiar desde WhatsApp en 15 minutos.',
+    icon: '⚡'
+  },
+  {
+    title: 'Respaldo Total',
+    desc: 'Trabajamos solo con empresas acreditadas con flotas de ambulancias UTI y helicópteros sanitarios.',
+    icon: '🚑'
+  }
+]
+---
+
+<section id="cobertura" class="py-20 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">
+        ¿Por qué contratar con una <span class="text-blue-600">Asesora Experta?</span>
+      </h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+        No pierdas tiempo cotizando en 5 lugares diferentes. Centralizamos las mejores opciones del
+        mercado chileno para ti.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        features.map((item) => (
+          <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group">
+            <div class="text-4xl mb-6 bg-blue-50 w-16 h-16 flex items-center justify-center rounded-2xl group-hover:scale-110 transition-transform">
+              {item.icon}
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
+            <p class="text-slate-600 leading-relaxed text-sm">{item.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
