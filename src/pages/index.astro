@@ -1,16 +1,29 @@
 ---
+import Layout from '../layout/Layout.astro'
 
+// Importación de componentes (los crearemos a continuación)
+import Hero from '../components/Hero.astro'
+import Features from '../components/Features.astro'
+import PlanGrid from '../components/PlanGrid.astro'
+import CoverageMap from '../components/CoverageMap.astro'
+import Testimonials from '../components/Testimonials.astro'
+import ContactCTA from '../components/ContactCTA.astro'
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Rescates Médicos Chile | Asesoría en Planes de Protección">
+  <main>
+    <Hero />
+
+    <Features />
+
+    <PlanGrid />
+
+    <CoverageMap />
+    <Testimonials />
+
+    <ContactCTA />
+  </main>
+
+  <FloatingWhatsApp />
+</Layout>

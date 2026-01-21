@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+import '../styles/global.css'
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Asesoría experta en planes de rescate médico y ambulancias privadas. Compara y contrata el mejor plan para tu familia."
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://wa.me" />
+  </head>
+  <body class="bg-slate-50 text-slate-900 font-sans">
+    <slot />
+
+    <footer class="bg-white border-t py-12 px-4 mt-20">
+      <div class="max-width-6xl mx-auto text-center text-sm text-slate-500">
+        <p class="mb-4">
+          <strong>Aviso Legal:</strong> Este sitio es operado por Ejecutiva de Ventas Autorizada. www.rescatesmedicos.cl
+          es un canal de asesoría y contratación. No somos un servicio de emergencias médicas directo.
+        </p>
+        <p>© 2026 Rescates Médicos Chile - Asesoría en Protección Familiar.</p>
+      </div>
+    </footer>
+  </body>
+</html>
