@@ -1,4 +1,5 @@
 export const CONTACT_INFO = {
+  owner: 'Erika Zuñiga',
   name: 'Ejecutiva autorizada',
   phone: '56942874934',
   // El mensaje que el CLIENTE verá escrito en su WhatsApp listo para enviar

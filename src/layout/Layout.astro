@@ -5,31 +5,82 @@ interface Props {
 
 const { title } = Astro.props
 import '../styles/global.css'
+import { CONTACT_INFO } from '../data/config'
+
+// URL canónica para evitar contenido duplicado
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.rescatesmedicos.cl')
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es-CL">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.svg" />
+
+    <title>{title}</title>
     <meta
       name="description"
-      content="Asesoría experta en planes de rescate médico y ambulancias privadas. Compara y contrata el mejor plan para tu familia."
+      content="Cotiza y contrata planes de rescate médico en Chile (UCM). Asesoría autorizada con ejecutiva experta. Cobertura en Region Metropolitana y Valparaiso."
     />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content={CONTACT_INFO.owner} />
+
+    <meta name="geo.region" content="CL-RM" />
+    <meta name="geo.placename" content="Santiago" />
+    <meta name="geo.position" content="-33.4489;-70.6693" />
+    <meta name="ICBM" content="-33.4489, -70.6693" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta
+      property="og:description"
+      content="Protege a tu familia con los mejores planes de ambulancia y rescate médico. Asesoría gratuita y contratación inmediata."
+    />
+    <meta property="og:image" content="/images/rescate.png" />
+    <meta property="og:locale" content="es_CL" />
+
     <link rel="preconnect" href="https://wa.me" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Rescates Médicos Chile - Asesoría Ejecutiva",
+        "image": "https://www.rescatesmedicos.cl/images/rescate.png",
+        "description": "Asesoría y venta de planes de rescate médico y ambulancias privadas en Chile.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Santiago",
+          "addressRegion": "Región Metropolitana",
+          "addressCountry": "CL"
+        },
+        "priceRange": "$$",
+        "telephone": "+56942874934"
+      }
+    </script>
   </head>
-  <body class="bg-slate-50 text-slate-900 font-sans">
+  <body
+    class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-200 selection:text-blue-900"
+  >
     <slot />
 
-    <footer class="bg-white border-t py-12 px-4 mt-20">
-      <div class="max-width-6xl mx-auto text-center text-sm text-slate-500">
+    <footer class="bg-white border-t border-slate-200 py-12 px-4 mt-20">
+      <div class="max-w-6xl mx-auto text-center text-sm text-slate-500">
         <p class="mb-4">
-          <strong>Aviso Legal:</strong> Este sitio es operado por Ejecutiva de Ventas Autorizada. www.rescatesmedicos.cl
-          es un canal de asesoría y contratación. No somos un servicio de emergencias médicas directo.
+          <strong>Aviso Legal:</strong> Este sitio web es gestionado por una
+          <span class="text-slate-700 font-bold">Ejecutiva de Ventas Autorizada</span>. Actuamos
+          como canal de asesoría y contratación para servicios como UCM. No somos la central de
+          urgencias médicas directa de ninguna compañía.
         </p>
-        <p>© 2026 Rescates Médicos Chile - Asesoría en Protección Familiar.</p>
+        <p class="text-xs">
+          © {new Date().getFullYear()} Rescates Médicos Chile. Todos los derechos reservados.
+        </p>
       </div>
     </footer>
   </body>

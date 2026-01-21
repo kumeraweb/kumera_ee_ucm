@@ -35,22 +35,27 @@ const navItems = [
         </div>
       </div>
 
-      <div class="hidden md:flex items-center gap-8">
-        {
-          navItems.map((item) => (
-            <a
-              href={item.href}
-              class="text-sm font-semibold text-slate-600 hover:text-blue-700 transition-colors"
-            >
-              {item.name}
-            </a>
-          ))
-        }
+      <div class="flex items-center gap-4">
+        <div class="hidden md:flex items-center gap-8">
+          {
+            navItems.map((item) => (
+              <a
+                href={item.href}
+                class="text-sm font-semibold text-slate-600 hover:text-blue-700 transition-colors"
+              >
+                {item.name}
+              </a>
+            ))
+          }
+        </div>
+
         <a
           href={`tel:${CONTACT_INFO.phone}`}
-          class="bg-blue-700 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-blue-800 transition-all shadow-lg shadow-blue-200 flex items-center gap-2"
+          class="bg-blue-700 text-white px-4 md:px-6 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-bold hover:bg-blue-800 transition-all shadow-lg shadow-blue-200 flex items-center gap-2"
         >
-          <span>📞</span> Llamar a {CONTACT_INFO.name}
+          <span>📞</span>
+          <span class="hidden md:inline">Llamar a {CONTACT_INFO.name}</span>
+          <span class="md:hidden">Llamar</span>
         </a>
       </div>
     </div>
@@ -79,7 +84,7 @@ const navItems = [
         </div>
 
         <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-6">
-          Ambulancias de rescate Privado, <br />
+          Contrata rescate médico, <br />
           <span class="text-blue-400">en la puerta de tu casa en minutos</span>
         </h1>
 
