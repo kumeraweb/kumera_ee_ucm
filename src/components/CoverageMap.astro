@@ -1,0 +1,50 @@
+---
+import { COVERAGE_AREAS } from '../data/config'
+---
+
+<section id="cobertura" class="py-20 bg-white border-t border-slate-100">
+  <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+    <div class="flex-1">
+      <span class="text-blue-600 font-bold tracking-widest uppercase text-sm"
+        >Áreas de Cobertura</span
+      >
+      <h2 class="text-4xl font-black text-slate-900 mt-2 mb-6">Llegamos donde estés</h2>
+      <p class="text-slate-600 text-lg mb-8">
+        Nuestros convenios cuentan con bases estratégicas para asegurar tiempos de respuesta mínimos
+        en las zonas urbanas más importantes.
+      </p>
+
+      <ul class="space-y-4">
+        {
+          COVERAGE_AREAS.map((area) => (
+            <li class="flex items-center gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100">
+              <div class="bg-green-100 p-2 rounded-full text-green-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+              </div>
+              <span class="font-bold text-slate-800">{area}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

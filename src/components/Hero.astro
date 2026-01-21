@@ -1,16 +1,15 @@
 ---
+import { CONTACT_INFO, getWhatsAppLink } from '../data/config'
+
 const navItems = [
   { name: 'Planes', href: '#planes' },
   { name: 'Cobertura', href: '#cobertura' },
-  { name: 'Servicios', href: '#servicios' },
+  { name: 'Convenios', href: '#features' },
   { name: 'Contacto', href: '#contacto' }
 ]
-
-// Reemplaza esta URL por la ruta de tu imagen generada cuando la subas a tu carpeta public/
-const heroImage = '/img/hero-rescate.webp'
 ---
 
-<header class="relative w-full min-h-screen flex flex-col overflow-hidden">
+<header class="relative w-full min-h-[90vh] flex flex-col overflow-hidden">
   <nav class="absolute top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
       <div class="flex items-center gap-3">
@@ -31,7 +30,7 @@ const heroImage = '/img/hero-rescate.webp'
             >RESCATES MÉDICOS</span
           >
           <span class="text-[10px] uppercase tracking-widest text-slate-500 font-bold"
-            >Contratacion Autorizada Chile</span
+            >Contratación Autorizada Chile</span
           >
         </div>
       </div>
@@ -48,52 +47,54 @@ const heroImage = '/img/hero-rescate.webp'
           ))
         }
         <a
-          href="tel:+569XXXXXXXX"
-          class="bg-blue-700 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-blue-800 transition-all shadow-lg shadow-blue-200"
+          href={`tel:${CONTACT_INFO.phone}`}
+          class="bg-blue-700 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-blue-800 transition-all shadow-lg shadow-blue-200 flex items-center gap-2"
         >
-          Llamar Ahora
+          <span>📞</span> Llamar a {CONTACT_INFO.name}
         </a>
       </div>
     </div>
   </nav>
 
-  <div class="relative flex-1 flex items-center pt-20">
+  <div class="relative flex-1 flex items-center pt-20 p-5">
     <div class="absolute inset-0 z-0">
       <img
         src="/images/rescate.png"
-        alt="Rescate médico nocturno"
+        alt="Rescate médico nocturno ambulancia"
         class="w-full h-full object-cover"
       />
       <div
-        class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/60 to-slate-900/20"
+        class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/70 to-slate-900/30"
       >
       </div>
     </div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-4 w-full">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 w-full py-12 md:py-0">
       <div class="max-w-3xl">
         <div
-          class="inline-flex items-center gap-2 bg-blue-600/20 backdrop-blur-md border border-blue-400/30 px-4 py-1.5 rounded-full mb-8 text-blue-100 text-xs font-bold uppercase tracking-widest"
+          class="mt-5 inline-flex items-center gap-2 bg-blue-600/30 backdrop-blur-md border border-blue-400/30 px-4 py-1.5 rounded-full mb-6 text-blue-50 text-xs font-bold uppercase tracking-widest"
         >
           <span class="flex h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
-          Ejecutiva Autorizada de Ventas
+          Atención Inmediata con {CONTACT_INFO.name}
         </div>
 
-        <h1 class="text-5xl md:text-5xl font-black text-white leading-[1.05] mb-6">
+        <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-6">
           Ambulancias de rescate Privado, <br />
           <span class="text-blue-400">en la puerta de tu casa en minutos</span>
         </h1>
 
-        <p class="text-xl md:text-2xl text-slate-200 mb-10 max-w-xl leading-relaxed font-medium">
-          Compara y contrata los mejores planes de rescate médico con una <span
-            class="text-white border-b-2 border-blue-500">asesora autorizada</span
-          >. Accede a la red más grande de servicios de rescate medico en Chile.
+        <p class="text-lg md:text-xl text-slate-200 mb-8 max-w-xl leading-relaxed font-medium">
+          No contrates a ciegas. Como <strong>Ejecutiva Autorizada</strong>, comparo por ti los
+          planes de
+          <strong class="text-white">Help, UCM y más</strong>, para que obtengas la mejor cobertura
+          en Santiago y Valparaíso al precio real.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
           <a
-            href="https://wa.me/569XXXXXXXX?text=Hola,%20necesito%20comparar%20planes%20de%20rescate"
-            class="group inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 text-white px-8 py-5 rounded-2xl font-black text-lg transition-all hover:scale-105 shadow-xl shadow-green-900/30"
+            href={getWhatsAppLink()}
+            target="_blank"
+            class="w-full sm:w-auto group inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-black text-lg transition-all hover:scale-105 shadow-xl shadow-green-900/30"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -105,23 +106,15 @@ const heroImage = '/img/hero-rescate.webp'
                 d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.887-11.888 3.174 0 6.16 1.236 8.41 3.484 2.247 2.247 3.487 5.232 3.487 8.406 0 6.555-5.332 11.89-11.888 11.89-1.941 0-3.843-.48-5.544-1.391l-6.451 1.608zm10.635-19.587c-1.159 0-2.236.446-3.034 1.253-.806.808-1.254 1.884-1.254 3.041 0 1.054.39 2.048 1.067 2.871l.19.233-.677 2.469 2.53-.662.223.132c.767.457 1.648.699 2.557.699 1.159 0 2.246-.449 3.051-1.255.807-.809 1.253-1.885 1.253-3.042 0-2.366-1.922-4.29-4.288-4.29z"
               ></path>
             </svg>
-            Consultar por WhatsApp
+            Cotizar Plan con {CONTACT_INFO.name}
           </a>
 
-          <div class="flex gap-3">
-            <a
-              href="#planes"
-              class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-5 rounded-2xl font-bold text-lg transition-all shadow-lg shadow-blue-900/40"
-            >
-              Ver Planes
-            </a>
-            <a
-              href="#comparar"
-              class="bg-white hover:bg-slate-100 text-blue-900 px-6 py-5 rounded-2xl font-bold text-lg transition-all shadow-lg"
-            >
-              Comparar
-            </a>
-          </div>
+          <a
+            href="#planes"
+            class="w-full sm:w-auto inline-flex justify-center bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 px-8 py-4 rounded-xl font-bold text-lg transition-all"
+          >
+            Ver Precios
+          </a>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 gap-8 mt-16 pt-8 border-t border-white/10">

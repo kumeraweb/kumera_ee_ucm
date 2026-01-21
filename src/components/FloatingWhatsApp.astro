@@ -1,0 +1,38 @@
+---
+import { CONTACT_INFO, getWhatsAppLink } from '../data/config'
+---
+
+<a
+  href={getWhatsAppLink()}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="fixed bottom-6 right-6 z-50 flex items-center gap-3 group transition-all duration-300 hover:-translate-y-1"
+  aria-label="Contactar por WhatsApp"
+>
+  <div
+    class="bg-white px-4 py-2 rounded-full shadow-lg border border-slate-100 hidden md:block group-hover:scale-105 transition-transform"
+  >
+    <span class="text-slate-800 text-sm font-bold">👋 Hola, estoy para atenderte</span>
+  </div>
+
+  <div class="bg-[#25D366] p-4 rounded-full shadow-xl shadow-green-900/20 text-white relative">
+    <span class="absolute top-0 right-0 flex h-3 w-3">
+      <span
+        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-200 opacity-75"
+      ></span>
+      <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500 border-2 border-[#25D366]"
+      ></span>
+    </span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path
+        d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.887-11.888 3.174 0 6.16 1.236 8.41 3.484 2.247 2.247 3.487 5.232 3.487 8.406 0 6.555-5.332 11.89-11.888 11.89-1.941 0-3.843-.48-5.544-1.391l-6.451 1.608zm10.635-19.587c-1.159 0-2.236.446-3.034 1.253-.806.808-1.254 1.884-1.254 3.041 0 1.054.39 2.048 1.067 2.871l.19.233-.677 2.469 2.53-.662.223.132c.767.457 1.648.699 2.557.699 1.159 0 2.246-.449 3.051-1.255.807-.809 1.253-1.885 1.253-3.042 0-2.366-1.922-4.29-4.288-4.29z"
+      ></path>
+    </svg>
+  </div>
+</a>

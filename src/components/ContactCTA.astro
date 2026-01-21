@@ -1,45 +1,39 @@
+---
+import { getWhatsAppLink } from '../data/config'
+---
+
 <section id="contacto" class="py-20 bg-blue-900 relative overflow-hidden">
   <div
-    class="absolute inset-0 opacity-10 bg-[url('/images/rescate.png')] bg-cover bg-center mix-blend-overlay"
+    class="absolute inset-0 opacity-20 bg-[url('/images/rescate.png')] bg-cover bg-center mix-blend-overlay"
   >
   </div>
 
   <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
-    <h2 class="text-4xl md:text-5xl font-black text-white mb-6">¿Una emergencia médica hoy?</h2>
-    <p class="text-xl text-blue-100 mb-10 leading-relaxed">
-      Nadie planea un accidente o un infarto. <br class="hidden md:block" />
-      Asegura el acceso inmediato a una ambulancia de alta complejidad <strong class="text-white"
-        >antes de que la necesites.</strong
-      >
+    <h2 class="text-3xl md:text-5xl font-black text-white mb-6">
+      No esperes una emergencia <br />para decidir.
+    </h2>
+    <p class="text-xl text-blue-100 mb-10 leading-relaxed max-w-2xl mx-auto">
+      Háblame ahora y te asesoro gratis para elegir el plan perfecto para tu ubicación y
+      presupuesto.
     </p>
 
-    <div
-      class="bg-white p-2 rounded-2xl md:rounded-full inline-flex flex-col md:flex-row shadow-2xl"
+    <a
+      href={getWhatsAppLink()}
+      class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-400 text-white px-8 py-5 rounded-full font-bold text-xl transition-all shadow-xl hover:scale-105"
     >
-      <input
-        type="text"
-        placeholder="Ingresa tu teléfono..."
-        class="px-6 py-4 outline-none text-slate-900 w-full md:w-80 bg-transparent"
-      />
-      <button
-        class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl md:rounded-full font-bold text-lg transition-all shadow-lg flex items-center justify-center gap-2"
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-8 h-8"
+        fill="currentColor"
+        viewBox="0 0 24 24"
       >
-        <span>Contactarme Ahora</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-5 h-5"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-            clip-rule="evenodd"></path>
-        </svg>
-      </button>
-    </div>
-    <p class="text-blue-300 text-xs mt-4">
-      *Tus datos están protegidos. Te contactaré personalmente en menos de 20 minutos.
-    </p>
+        <path
+          d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.887-11.888 3.174 0 6.16 1.236 8.41 3.484 2.247 2.247 3.487 5.232 3.487 8.406 0 6.555-5.332 11.89-11.888 11.89-1.941 0-3.843-.48-5.544-1.391l-6.451 1.608zm10.635-19.587c-1.159 0-2.236.446-3.034 1.253-.806.808-1.254 1.884-1.254 3.041 0 1.054.39 2.048 1.067 2.871l.19.233-.677 2.469 2.53-.662.223.132c.767.457 1.648.699 2.557.699 1.159 0 2.246-.449 3.051-1.255.807-.809 1.253-1.885 1.253-3.042 0-2.366-1.922-4.29-4.288-4.29z"
+        ></path>
+      </svg>
+      Hablar con tu ejecutiva ahora
+    </a>
+
+    <p class="text-blue-300 text-sm mt-6">Respuesta promedio: menos de 15 minutos.</p>
   </div>
 </section>

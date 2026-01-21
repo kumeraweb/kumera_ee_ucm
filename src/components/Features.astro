@@ -1,49 +1,74 @@
 ---
+// Importamos los íconos desde la librería que acabas de instalar
+import { FileSearch, UserCheck, MapPin, Zap } from 'lucide-astro'
+
 const features = [
   {
-    title: 'Comparativa Imparcial',
-    desc: 'Te mostramos las letras chicas de cada contrato. Elige con información real, sin sesgos de marca.',
-    icon: '⚖️'
+    title: 'Comparativa Transparente',
+    desc: 'Analizamos las coberturas de Help, UCM y más. Te explico la "letra chica" para que no pagues de más.',
+    icon: FileSearch // Ícono de análisis de documentos
   },
   {
-    title: 'Mejor Precio Garantizado',
-    desc: 'Accede a valores preferenciales y descuentos exclusivos por contratación vía ejecutiva autorizada.',
-    icon: '💰'
+    title: 'Atención Personalizada',
+    desc: 'Soy Erika, tu ejecutiva directa. Sin call centers ni esperas. Me escribes y gestiono tu requerimiento.',
+    icon: UserCheck // Ícono de usuario verificado/experto
   },
   {
-    title: 'Gestión 100% Digital',
-    desc: 'Sin papeleos eternos. Contrata tu plan de protección familiar desde WhatsApp en 15 minutos.',
-    icon: '⚡'
+    title: 'Cobertura Geográfica',
+    desc: 'Planes específicos para Región Metropolitana, V Región y Concepción. La ambulancia correcta en tu zona.',
+    icon: MapPin // Ícono de ubicación
   },
   {
-    title: 'Respaldo Total',
-    desc: 'Trabajamos solo con empresas acreditadas con flotas de ambulancias UTI y helicópteros sanitarios.',
-    icon: '🚑'
+    title: 'Gestión Digital',
+    desc: 'Contratación remota, rápida y segura. Recibe tu contrato en tu correo en minutos.',
+    icon: Zap // Ícono de rapidez/energía
   }
 ]
 ---
 
-<section id="cobertura" class="py-20 bg-slate-50">
+<section id="features" class="py-20 bg-slate-50">
   <div class="max-w-7xl mx-auto px-4">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">
-        ¿Por qué contratar con una <span class="text-blue-600">Asesora Experta?</span>
-      </h2>
-      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-        No pierdas tiempo cotizando en 5 lugares diferentes. Centralizamos las mejores opciones del
-        mercado chileno para ti.
+    <div class="mb-20 text-center">
+      <p class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-6">
+        Trabajamos con las mejores redes de rescate
+      </p>
+
+      <div
+        class="flex flex-wrap justify-center items-center gap-12 opacity-80 grayscale hover:grayscale-0 transition-all duration-500"
+      >
+        <img
+          src="/images/ucm.png"
+          alt="Convenio UCM Unidad Coronaria Móvil"
+          class="h-16 md:h-20 object-contain"
+        />
+      </div>
+
+      <p class="text-xs text-slate-400 mt-4 max-w-lg mx-auto">
+        *Las marcas mostradas pertenecen a sus respectivos dueños. Actuamos como canal de asesoría
+        autorizado para facilitar tu contratación.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">
+        ¿Por qué contratar con una <span class="text-blue-600">Ejecutiva Experta?</span>
+      </h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+        Más que un plan, contratas la tranquilidad de tener a alguien que responda y te guíe cuando
+        tengas dudas.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       {
         features.map((item) => (
-          <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group">
-            <div class="text-4xl mb-6 bg-blue-50 w-16 h-16 flex items-center justify-center rounded-2xl group-hover:scale-110 transition-transform">
-              {item.icon}
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+            <div class="mb-4 text-blue-600 bg-blue-50 w-14 h-14 flex items-center justify-center rounded-xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
+              <item.icon size={28} stroke-width={1.5} />
             </div>
-            <h3 class="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-            <p class="text-slate-600 leading-relaxed text-sm">{item.desc}</p>
+
+            <h3 class="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
           </div>
         ))
       }
