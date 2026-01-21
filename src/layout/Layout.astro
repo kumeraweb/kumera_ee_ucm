@@ -64,6 +64,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.resc
         "telephone": "+56942874934"
       }
     </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-17791440821"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+
+      gtag('config', 'AW-17791440821')
+    </script>
   </head>
   <body
     class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-200 selection:text-blue-900"
