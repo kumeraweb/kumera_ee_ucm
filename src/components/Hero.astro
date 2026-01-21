@@ -11,32 +11,56 @@ const navItems = [
 
 <header class="relative w-full min-h-[90vh] flex flex-col overflow-hidden">
   <nav class="absolute top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="bg-blue-700 p-2 rounded-lg">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-6 h-6 text-white"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"
-            ></path>
-          </svg>
+    <div class="max-w-7xl mx-auto px-2 md:px-4 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-2 md:gap-4 overflow-hidden">
+        <div class="flex items-center gap-2 md:gap-3 shrink-0">
+          <div class="bg-blue-800 p-1.5 md:p-2 rounded-lg shrink-0">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5 md:w-6 md:h-6 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M12 4v16m8-8H4"></path>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span
+              class="text-blue-900 font-black text-sm md:text-xl tracking-tighter leading-none whitespace-nowrap"
+              >RESCATES MÉDICOS</span
+            >
+            <span
+              class="text-[8px] md:text-[10px] uppercase tracking-widest text-slate-500 font-bold hidden xs:block"
+              >Contratación Autorizada</span
+            >
+          </div>
         </div>
-        <div class="flex flex-col">
-          <span class="text-blue-900 font-black text-xl tracking-tighter leading-none"
-            >RESCATES MÉDICOS</span
+
+        <div class="h-6 w-px bg-slate-300 shrink-0"></div>
+
+        <div class="flex items-center gap-1 md:gap-2 shrink-0">
+          <span class="text-[10px] md:text-xs font-semibold text-slate-400 hidden sm:block"
+            >Alianza con:</span
           >
-          <span class="text-[10px] uppercase tracking-widest text-slate-500 font-bold"
-            >Contratación Autorizada Chile</span
+          <a
+            href="https://www.ucmchile.cl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:opacity-80 transition-opacity"
+            title="Sitio oficial UCM Chile"
           >
+            <img src="/images/ucm.png" alt="Logo UCM" class="h-6 md:h-10 w-auto object-contain" />
+          </a>
         </div>
       </div>
 
-      <div class="flex items-center gap-4">
-        <div class="hidden md:flex items-center gap-8">
+      <div class="flex items-center gap-4 shrink-0 pl-2">
+        <div class="hidden lg:flex items-center gap-8">
           {
             navItems.map((item) => (
               <a
@@ -51,11 +75,15 @@ const navItems = [
 
         <a
           href={`tel:${CONTACT_INFO.phone}`}
-          class="bg-blue-700 text-white px-4 md:px-6 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-bold hover:bg-blue-800 transition-all shadow-lg shadow-blue-200 flex items-center gap-2"
+          class="bg-red-600 text-white px-3 py-2 md:px-6 md:py-2 rounded-full text-xs md:text-sm font-bold hover:bg-red-700 transition-all shadow-lg shadow-red-200 flex items-center gap-2 whitespace-nowrap animate-pulse md:animate-none"
         >
           <span>📞</span>
-          <span class="hidden md:inline">Llamar a {CONTACT_INFO.name}</span>
-          <span class="md:hidden">Llamar</span>
+          <div class="flex flex-col leading-none items-start">
+            <span class="hidden md:inline text-[10px] font-medium opacity-90"
+              >Llamar a {CONTACT_INFO.name}</span
+            >
+            <span class="text-xs md:text-sm font-black tracking-wide">+{CONTACT_INFO.phone}</span>
+          </div>
         </a>
       </div>
     </div>
@@ -77,9 +105,11 @@ const navItems = [
     <div class="relative z-10 max-w-7xl mx-auto px-4 w-full py-12 md:py-0">
       <div class="max-w-3xl">
         <div
-          class="mt-5 inline-flex items-center gap-2 bg-blue-600/30 backdrop-blur-md border border-blue-400/30 px-4 py-1.5 rounded-full mb-6 text-blue-50 text-xs font-bold uppercase tracking-widest"
+          class="mt-5 inline-flex items-center gap-2 bg-blue-900/40 backdrop-blur-md border border-blue-400/30 px-4 py-1.5 rounded-full mb-6 text-blue-50 text-xs font-bold uppercase tracking-widest"
         >
-          <span class="flex h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
+          <span
+            class="flex h-2 w-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_10px_rgba(239,68,68,0.8)]"
+          ></span>
           Atención Inmediata con {CONTACT_INFO.name}
         </div>
 
@@ -90,7 +120,7 @@ const navItems = [
 
         <p class="text-lg md:text-xl text-slate-200 mb-8 max-w-xl leading-relaxed font-medium">
           No contrates a ciegas. Como <strong>Ejecutiva Autorizada</strong>, Contrata HOY PLANES
-          <strong class="text-white">de rescate Famila o Empresa</strong>, para que obtengas la
+          <strong class="text-white">de rescate Familia o Empresa</strong>, para que obtengas la
           mejor cobertura en Santiago y Valparaíso.
         </p>
 
@@ -115,7 +145,7 @@ const navItems = [
 
           <a
             href="#planes"
-            class="w-full sm:w-auto inline-flex justify-center bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 px-8 py-4 rounded-xl font-bold text-lg transition-all"
+            class="w-full sm:w-auto inline-flex justify-center items-center bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg shadow-red-900/30 border border-red-500"
           >
             Ver Precios
           </a>
