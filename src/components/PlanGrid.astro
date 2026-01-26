@@ -1,75 +1,81 @@
 ---
-import { PLANES } from '../data/planes'
 import { getWhatsAppLink } from '../data/config'
-
-const formatCurrency = (value: string, unit: string) => {
-  return unit === 'UF' ? `${value} UF` : `$${value}`
-}
 ---
 
 <section id="planes" class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-16">
-      <span class="text-blue-600 font-bold tracking-widest uppercase text-sm">Planes Flexibles</span
-      >
+      <span class="text-blue-600 font-bold tracking-widest uppercase text-sm">Planes Flexibles</span>
       <h2 class="text-4xl font-black text-slate-900 mt-2">Protección a tu medida</h2>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      {
-        PLANES.map((plan) => (
-          <div
-            class={`relative rounded-3xl p-8 border-2 flex flex-col ${plan.destacado ? 'border-blue-600 bg-blue-50/50 shadow-2xl scale-105 z-10' : 'border-slate-100 bg-white shadow-lg hover:border-blue-300'} transition-all`}
-          >
-            {plan.destacado && (
-              <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-lg">
-                Más Cotizado
-              </div>
-            )}
+    <div class="plans-grid grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <article class="plan-card blue">
+        <span class="plan-badge">Oferta Web</span>
+        <h3 class="plan-title">PLAN FULL RESCUE</h3>
 
-            <div class="mb-6">
-              <h3 class="text-xl font-bold text-slate-900">{plan.nombre}</h3>
-              <div class="mt-4 flex items-baseline">
-                <span class="text-sm text-slate-500 font-medium">Desde</span>
-                <span class="text-4xl font-black text-slate-900 ml-2">{plan.precioDesde}</span>
-                <span class="text-xl font-bold text-slate-600 ml-1">{plan.unidad}</span>
-              </div>
-              <p class="text-slate-500 text-sm mt-1">Valor mensual por beneficiario</p>
-            </div>
-
-            <ul class="space-y-4 mb-8 flex-1">
-              {plan.caracteristicas.map((feature) => (
-                <li class="flex items-start gap-3 text-slate-700 text-sm">
-                  <svg
-                    class="w-5 h-5 text-green-500 shrink-0"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-
-            <a
-              href={getWhatsAppLink(
-                `Hola Erika, me interesa cotizar el plan ${plan.nombre}. ¿Me das más info?`
-              )}
-              target="_blank"
-              class={`w-full py-4 rounded-xl font-bold text-center transition-all shadow-md hover:shadow-xl flex justify-center items-center gap-2 ${plan.destacado ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-white border-2 border-slate-100 text-slate-700 hover:border-blue-300 hover:text-blue-700'}`}
-            >
-              Solicitar Cotización
-            </a>
+        <div class="price-block">
+          <span class="old-price">Antes 0,90 UF</span>
+          <div class="price-row">
+            <span class="current-price">0,59 UF</span>
+            <span class="price-period">/mensual</span>
           </div>
-        ))
-      }
+        </div>
+
+        <p class="plan-subtitle">
+          Rescate de Emergencias Médicas con Riesgo Vital y Urgencias Médicas.
+        </p>
+
+        <ul class="plan-features">
+          <li>Valor desde 0,59 según edad.</li>
+          <li>8 Rescates con Riesgo Vital y/o Urgencias Médicas.</li>
+          <li>Atención de Salud Programada.</li>
+          <li>Servicios anuales incluidos.</li>
+          <li>2UF Atención Adicional.</li>
+        </ul>
+
+        <a
+          href={getWhatsAppLink('Hola Erika, me interesa el PLAN FULL RESCUE. ¿Me das más info?')}
+          target="_blank"
+          class="plan-button"
+        >
+          SOLICITAR FULL RESCUE
+        </a>
+      </article>
+
+      <article class="plan-card">
+        <span class="plan-badge plan-badge--outline">Ideal Adulto Mayor</span>
+        <h3 class="plan-title">PLAN SENIOR</h3>
+
+        <div class="price-block">
+          <span class="old-price">Antes 1,60 UF</span>
+          <div class="price-row">
+            <span class="current-price">1,2 UF</span>
+            <span class="price-period">/mensual</span>
+          </div>
+        </div>
+
+        <p class="plan-subtitle">
+          Rescate en Ambulancia + Asistencia de Salud + Atenciones con copago $0
+        </p>
+
+        <ul class="plan-features">
+          <li>75 años de edad en adelante.</li>
+          <li>4 Rescates con Riesgo Vital y/o Urgencias Médicas.</li>
+          <li>2 Atenciones en Consultas Médicas de Especialidad.</li>
+          <li>2 Servicios de Exámenes de Laboratorio.</li>
+          <li>2 Exámenes de Radiología.</li>
+          <li>1 Electrocardiograma.</li>
+        </ul>
+
+        <a
+          href={getWhatsAppLink('Hola Erika, me interesa el PLAN SENIOR. ¿Me das más info?')}
+          target="_blank"
+          class="plan-button plan-button--primary"
+        >
+          SOLICITAR PLAN SENIOR
+        </a>
+      </article>
     </div>
   </div>
 </section>
